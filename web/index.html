@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abysse Quiz</title>
+    <meta name="description" content="Quiz abyssal jouable en ligne sur Cloudflare" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Quiz des profondeurs</p>
+          <h1>ABYSSE</h1>
+        </div>
+        <div class="status" id="statusPill">En ligne</div>
+      </header>
+
+      <main class="panel">
+        <section id="menuScreen" class="screen">
+          <div class="card intro-card">
+            <div>
+              <p class="label">Expérience abyssale</p>
+              <h2>Descendez jusqu’au secret des grands fonds.</h2>
+            </div>
+
+            <div class="setup-grid">
+              <div class="field">
+                <label for="playerName">Pseudo</label>
+                <input id="playerName" type="text" value="Explorateur" maxlength="20" />
+              </div>
+
+              <div class="field">
+                <label for="difficultySelect">Niveau</label>
+                <select id="difficultySelect">
+                  <option value="facile">Facile</option>
+                  <option value="moyen">Moyen</option>
+                  <option value="difficile">Difficile</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="roomInput">Salon</label>
+                <input id="roomInput" type="text" placeholder="Code de salon" maxlength="8" />
+              </div>
+            </div>
+
+            <div class="button-stack">
+              <button id="createRoomBtn" class="primary-btn">Créer un salon</button>
+              <button id="joinRoomBtn" class="secondary-btn">Rejoindre</button>
+              <button id="soloBtn" class="secondary-btn">Mode solo</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="lobbyScreen" class="screen hidden">
+          <div class="card">
+            <div class="section-head">
+              <div>
+                <p class="label">Salon</p>
+                <h3 id="roomCodeLabel">Code: —</h3>
+              </div>
+              <button id="startGameBtn" class="primary-btn compact">Lancer la partie</button>
+            </div>
+            <ul id="playerList" class="player-list"></ul>
+          </div>
+        </section>
+
+        <section id="gameScreen" class="screen hidden">
+          <div class="card">
+            <div class="question-topbar">
+              <span id="questionBadge" class="pill">Question 1</span>
+              <span id="timerBadge" class="pill timer-pill">15s</span>
+            </div>
+
+            <h2 id="questionText" class="question-text">Chargement…</h2>
+            <div id="answers" class="answers"></div>
+          </div>
+        </section>
+
+        <section id="resultsScreen" class="screen hidden">
+          <div class="card results-card">
+            <p class="label">Classement final</p>
+            <h3 id="winnerText">Le plus profond a gagné !</h3>
+            <ul id="resultsList" class="player-list"></ul>
+            <div class="button-stack row">
+              <button id="playAgainBtn" class="primary-btn compact">Rejouer</button>
+              <button id="backMenuBtn" class="secondary-btn">Menu</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

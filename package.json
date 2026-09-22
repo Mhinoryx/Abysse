@@ -1,0 +1,13 @@
+{
+  "name": "abysse-quiz-cloudflare",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler dev --assets ./web --local",
+    "deploy": "wrangler deploy",
+    "check": "node --check worker.js && node --check web/app.js"
+  },
+  "devDependencies": {
+    "wrangler": "^3.109.2"
+  }
+}
