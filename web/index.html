@@ -11,10 +11,8 @@
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Quiz des profondeurs</p>
           <h1>ABYSSE</h1>
         </div>
-        <div class="status" id="statusPill">En ligne</div>
       </header>
 
       <main class="panel">
@@ -61,8 +59,22 @@
                 <p class="label">Salon</p>
                 <h3 id="roomCodeLabel">Code: —</h3>
               </div>
-              <button id="startGameBtn" class="primary-btn compact">Lancer la partie</button>
+              <div class="button-group-inline">
+                <button id="startGameBtn" class="primary-btn compact">Lancer la partie</button>
+                <button id="lobbyHomeBtn" class="secondary-btn compact">Accueil</button>
+              </div>
             </div>
+
+            <div id="shareBox" class="share-box">
+              <div class="share-info">
+                <p class="label">Code du salon</p>
+                <div id="joinCode" class="join-code">—</div>
+                <p class="label">Partage</p>
+                <div id="joinLink" class="join-link">—</div>
+              </div>
+              <img id="qrCode" class="qr-code" alt="QR code pour rejoindre le salon" />
+            </div>
+
             <ul id="playerList" class="player-list"></ul>
           </div>
         </section>
@@ -74,7 +86,11 @@
               <span id="timerBadge" class="pill timer-pill">15s</span>
             </div>
 
-            <h2 id="questionText" class="question-text">Chargement…</h2>
+            <div class="game-actions">
+              <button id="gameHomeBtn" class="secondary-btn compact">Accueil</button>
+            </div>
+
+            <h2 id="questionText">Chargement…</h2>
             <div id="answers" class="answers"></div>
           </div>
         </section>

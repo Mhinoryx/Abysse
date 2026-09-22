@@ -63,6 +63,9 @@ const timerBadge = document.getElementById('timerBadge');
 const resultsList = document.getElementById('resultsList');
 const winnerText = document.getElementById('winnerText');
 const statusPill = document.getElementById('statusPill');
+const joinCode = document.getElementById('joinCode');
+const joinLink = document.getElementById('joinLink');
+const qrCode = document.getElementById('qrCode');
 
 function shuffle(arr) {
   const copy = [...arr];
@@ -81,7 +84,24 @@ function setScreen(name) {
 }
 
 function updateStatus(text) {
-  statusPill.textContent = text;
+  if (statusPill) {
+    statusPill.textContent = text;
+  }
+}
+
+function updateShareBox() {
+  const roomCode = (state.roomCode || '').trim();
+  if (!roomCode) {
+    joinCode.textContent = '—';
+    joinLink.textContent = '—';
+    qrCode.src = '';
+    return;
+  }
+
+  const joinUrl = `${location.origin}?room=${encodeURIComponent(roomCode)}`;
+  joinCode.textContent = roomCode;
+  joinLink.textContent = joinUrl;
+  qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(joinUrl)}`;
 }
 
 function getSocketUrl() {
@@ -125,8 +145,9 @@ function handleSocketMessage(message) {
     state.roomCode = message.roomCode || state.roomCode;
     state.clientId = message.clientId || state.clientId;
     state.players = [];
-    setScreen('lobby');
     roomCodeLabel.textContent = `Code: ${state.roomCode}`;
+    updateShareBox();
+    setScreen('lobby');
     updateStatus(`Salon ${state.roomCode}`);
     return;
   }
@@ -136,6 +157,7 @@ function handleSocketMessage(message) {
     renderPlayers();
     roomCodeLabel.textContent = `Code: ${message.code}`;
     state.roomCode = message.code;
+    updateShareBox();
     setScreen('lobby');
     return;
   }
@@ -339,14 +361,18 @@ function startMultiplayerGame() {
 function resetToMenu() {
   clearInterval(state.timerId);
   state.score = 0;
+  state.roomCode = '';
+  updateShareBox();
   setScreen('menu');
-  updateStatus('En ligne');
+  updateStatus('');
 }
 
 const createRoomBtn = document.getElementById('createRoomBtn');
 const joinRoomBtn = document.getElementById('joinRoomBtn');
 const soloBtn = document.getElementById('soloBtn');
 const startGameBtn = document.getElementById('startGameBtn');
+const lobbyHomeBtn = document.getElementById('lobbyHomeBtn');
+const gameHomeBtn = document.getElementById('gameHomeBtn');
 const playAgainBtn = document.getElementById('playAgainBtn');
 const backMenuBtn = document.getElementById('backMenuBtn');
 
@@ -354,6 +380,8 @@ createRoomBtn.addEventListener('click', createRoom);
 joinRoomBtn.addEventListener('click', joinRoom);
 soloBtn.addEventListener('click', startSoloGame);
 startGameBtn.addEventListener('click', startMultiplayerGame);
+lobbyHomeBtn.addEventListener('click', resetToMenu);
+gameHomeBtn.addEventListener('click', resetToMenu);
 playAgainBtn.addEventListener('click', () => {
   if (state.mode === 'multi') {
     startMultiplayerGame();
@@ -363,5 +391,12 @@ playAgainBtn.addEventListener('click', () => {
 });
 backMenuBtn.addEventListener('click', resetToMenu);
 
+const params = new URLSearchParams(window.location.search);
+const roomFromUrl = params.get('room');
+if (roomFromUrl) {
+  roomInput.value = roomFromUrl.trim().toUpperCase();
+}
+
 setScreen('menu');
-updateStatus('En ligne');
+updateShareBox();
+updateStatus('');
