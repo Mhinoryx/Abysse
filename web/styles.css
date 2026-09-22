@@ -43,6 +43,45 @@ body {
   animation: slowDrift 18s ease-in-out infinite alternate;
 }
 
+#bubbleLayer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -30px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(232, 250, 255, 0.92), rgba(134, 219, 255, 0.38), rgba(134, 219, 255, 0.08));
+  border: 1px solid rgba(123, 217, 255, 0.2);
+  box-shadow: 0 0 10px rgba(123, 217, 255, 0.12), 0 0 18px rgba(123, 217, 255, 0.08);
+  opacity: 0;
+  filter: blur(0.4px);
+  animation: bubbleRise 2.4s ease-out forwards;
+}
+
+@keyframes bubbleRise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.45);
+  }
+  18% {
+    opacity: 0.72;
+  }
+  60% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift-x), -115vh, 0) scale(1.8);
+  }
+}
+
 body::before, body::after {
   content: "";
   position: fixed;

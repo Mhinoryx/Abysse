@@ -1,33 +1,33 @@
 const QUESTION_BANK = {
   facile: [
-    { question: 'Quel symbole évoque le mieux les profondeurs abyssales ?', options: ['Un phare', 'Une ancre', 'Un soleil', 'Une prairie'], answer: 1, points: 1 },
-    { question: 'Quelle couleur représente le plus souvent la zone abyssale ?', options: ['Jaune', 'Bleu profond', 'Vert clair', 'Rouge vif'], answer: 1, points: 1 },
-    { question: 'Que cherche souvent un explorateur dans les profondeurs ?', options: ['Un secret perdu', 'Une route de montagne', 'Une ville en plein air', 'Un jardin'], answer: 0, points: 1 },
-    { question: 'Quel mot correspond au voyage vers le fond ?', options: ['Plongée', 'Escalade', 'Course', 'Vol'], answer: 0, points: 1 },
-    { question: 'Quelle ambiance correspond le mieux à l\'Abysse ?', options: ['Joyeuse et claire', 'Sombre et mystérieuse', 'Tropicale et lumineuse', 'Urbane et calme'], answer: 1, points: 1 },
-    { question: 'Quelle sensation domine une exploration abyssale ?', options: ['La sérénité', 'Le mystère et le danger', 'L\'ennui total', 'La fureur du soleil'], answer: 1, points: 1 },
-    { question: 'Une lueur profonde est souvent associée à :', options: ['Un signal étrange', 'Un feu de camp', 'Une route de campagne', 'Un retour à la maison'], answer: 0, points: 1 },
-    { question: 'Quel type de créature est typique de l\'univers abyssal ?', options: ['Un poisson aveugle', 'Un lion des neiges', 'Un cheval du désert', 'Un panda de jungle'], answer: 0, points: 1 },
+    { question: 'Quel océan est le plus vaste du monde ?', options: ['Océan Atlantique', 'Océan Pacifique', 'Océan Indien', 'Océan Arctique'], answer: 1, points: 1 },
+    { question: 'Quelle planète est surnommée la planète rouge ?', options: ['Vénus', 'Mars', 'Jupiter', 'Mercure'], answer: 1, points: 1 },
+    { question: 'Qui a peint La Joconde ?', options: ['Raphaël', 'Léonard de Vinci', 'Michel-Ange', 'Titien'], answer: 1, points: 1 },
+    { question: 'Combien de côtés a un hexagone ?', options: ['5', '6', '7', '8'], answer: 1, points: 1 },
+    { question: 'Quelle est la capitale du Japon ?', options: ['Kyoto', 'Osaka', 'Tokyo', 'Sapporo'], answer: 2, points: 1 },
+    { question: 'Quel animal est le plus grand mammifère du monde ?', options: ['Éléphant', 'Baleine bleue', 'Rorqual', 'Dauphin'], answer: 1, points: 1 },
+    { question: 'Quelle langue est parlée majoritairement au Brésil ?', options: ['Espagnol', 'Portugais', 'Français', 'Italien'], answer: 1, points: 1 },
+    { question: 'Quel est le symbole chimique de l\'or ?', options: ['Ag', 'Au', 'Go', 'Gd'], answer: 1, points: 1 },
   ],
   moyen: [
-    { question: 'Pourquoi l\'abysse est-elle souvent oppressante ?', options: ['Parce qu\'il manque de repères', 'Parce qu\'il n\'a plus d\'eau', 'Parce que le ciel est trop noir', 'Parce qu\'il y a trop de villages'], answer: 0, points: 2 },
-    { question: 'Le mot "vortex" fait surtout penser à :', options: ['Un tourbillon', 'Une prairie', 'Une maison', 'Un lac ensoleillé'], answer: 0, points: 2 },
-    { question: 'Quel est le meilleur comportement dans une zone abyssale ?', options: ['Avancer sans plan', 'Observer et préparer', 'Courir sans réfléchir', 'Ignorer les cartes'], answer: 1, points: 2 },
-    { question: 'Quel son évoque le mieux les profondeurs ?', options: ['Un grondement lointain', 'Un rire de fête', 'Un claquement de porte', 'Un chant de piaf'], answer: 0, points: 2 },
-    { question: 'Quelle destination correspond le mieux à une exploration abyssale ?', options: ['Un gouffre profond et mystérieux', 'Une ville lumineuse', 'Une montagne ouverte', 'Une forêt en été'], answer: 0, points: 2 },
-    { question: 'Quel sentiment domine le plus dans une expérience abyssale ?', options: ['Le mystère et l\'angoisse', 'La joie pure', 'Le confort absolu', 'L\'ennui sans fin'], answer: 0, points: 2 },
-    { question: 'Quelle relation entre lumière et danger est la plus logique ?', options: ['L\'ombre cache souvent des menaces', 'La lumière assure toujours la sécurité', 'Le danger dépend des couleurs', 'Le danger n\'existe pas'], answer: 0, points: 2 },
-    { question: 'Quel mot décrit le mieux une créature des grands fonds ?', options: ['Abyssale', 'Centrale', 'Ensoleillée', 'Lumineuse'], answer: 0, points: 2 },
+    { question: 'Quel scientifique a formulé la théorie de la relativité restreinte ?', options: ['Isaac Newton', 'Albert Einstein', 'Galilée', 'Nikola Tesla'], answer: 1, points: 2 },
+    { question: 'Quel pays a pour capitale Berlin ?', options: ['Autriche', 'Allemagne', 'Belgique', 'Pays-Bas'], answer: 1, points: 2 },
+    { question: 'Quelle est la plus haute montagne du monde ?', options: ['K2', 'Mont Blanc', 'Everest', 'Kilimandjaro'], answer: 2, points: 2 },
+    { question: 'Quel élément est essentiel à la photosynthèse ?', options: ['L\'azote', 'Le dioxyde de carbone', 'Le fer', 'Le sodium'], answer: 1, points: 2 },
+    { question: 'Qui a écrit Les Misérables ?', options: ['Victor Hugo', 'Émile Zola', 'Alexandre Dumas', 'Gustave Flaubert'], answer: 0, points: 2 },
+    { question: 'Combien de joueurs composent une équipe de football classique sur le terrain ?', options: ['9', '10', '11', '12'], answer: 2, points: 2 },
+    { question: 'Dans quel pays se trouve Machu Picchu ?', options: ['Chili', 'Pérou', 'Bolivie', 'Argentine'], answer: 1, points: 2 },
+    { question: 'Quel est le nom du satellite naturel de la Terre ?', options: ['Titan', 'Phobos', 'Lune', 'Europa'], answer: 2, points: 2 },
   ],
   difficile: [
-    { question: 'Quel élément crée le plus de tension dans une zone abyssale ?', options: ['La pression et l\'absence de repères', 'La présence d\'une plage', 'L\'absence de bruit', 'La météo trop douce'], answer: 0, points: 3 },
-    { question: 'Quelle logique est la plus cohérente face à l\'inconnu ?', options: ['Fuir sans réfléchir', 'Préparer et observer', 'Ignorer les sons', 'Avancer sans carte'], answer: 1, points: 3 },
-    { question: 'Que représente le mot "abyssal" dans un contexte narratif ?', options: ['Une profondeur insondable', 'Une très grande plaine', 'Un village caché', 'Un ciel de fin d\'été'], answer: 0, points: 3 },
-    { question: 'Une fosse abyssale est généralement associée à :', options: ['Une zone très profonde et mystérieuse', 'Un paysage tropical', 'Une route en altitude', 'Une prairie timide'], answer: 0, points: 3 },
-    { question: 'Quel comportement est le plus risqué dans une exploration profonde ?', options: ['Se repérer avec un plan', 'Avancer sans carte ni stratégie', 'Suivre une balise fiable', 'Observer la profondeur'], answer: 1, points: 3 },
-    { question: 'Quel sentiment domine le plus dans une expérience abyssale ?', options: ['Le mystère et l\'angoisse', 'La joie pure', 'Le confort absolu', 'L\'ennui sans fin'], answer: 0, points: 3 },
-    { question: 'Quelle découverte est la plus cohérente dans un univers abyssal ?', options: ['Un artefact oublié au fond', 'Une rue de ville', 'Un jardin lumineux', 'Un pont en plein ciel'], answer: 0, points: 3 },
-    { question: 'Que signifie l\'atmosphère "sombre et oppressante" ?', options: ['Un environnement chargé de mystère et de danger', 'Une scène joyeuse', 'Une lumière parfaite', 'Un paysage banal'], answer: 0, points: 3 },
+    { question: 'Quel est le plus long fleuve du monde ?', options: ['Nil', 'Amazone', 'Yangtsé', 'Mississippi'], answer: 1, points: 3 },
+    { question: 'En informatique, que signifie le sigle CPU ?', options: ['Central Processing Unit', 'Computer Power Utility', 'Control Program Update', 'Central Program Unit'], answer: 0, points: 3 },
+    { question: 'Quelle loi décrit les orbites elliptiques des planètes autour du Soleil ?', options: ['Loi de la gravitation', 'Loi de Kepler', 'Loi de Newton', 'Loi de Galilée'], answer: 1, points: 3 },
+    { question: 'Dans la mythologie grecque, qui est le dieu du tonnerre ?', options: ['Hadès', 'Apollon', 'Zeus', 'Hermès'], answer: 2, points: 3 },
+    { question: 'Quel est le nom du premier ordinateur électronique programmable ?', options: ['Apple II', 'ENIAC', 'IBM 360', 'Commodore 64'], answer: 1, points: 3 },
+    { question: 'Quel pays a aboli l\'esclavage en 1848 ?', options: ['Royaume-Uni', 'France', 'États-Unis', 'Brésil'], answer: 1, points: 3 },
+    { question: 'Quelle est la capitale du Canada ?', options: ['Toronto', 'Montréal', 'Ottawa', 'Vancouver'], answer: 2, points: 3 },
+    { question: 'Qui a composé la Symphonie n° 5 en do mineur ?', options: ['Mozart', 'Beethoven', 'Brahms', 'Chopin'], answer: 1, points: 3 },
   ],
 };
 
@@ -217,6 +217,42 @@ function handleSocketMessage(message) {
     setScreen('results');
     clearInterval(state.timerId);
   }
+}
+
+function triggerBubbleBurst(x, y) {
+  const layer = document.getElementById('bubbleLayer');
+  if (!layer) return;
+
+  const count = 18;
+  for (let i = 0; i < count; i += 1) {
+    const bubble = document.createElement('span');
+    bubble.className = 'bubble';
+
+    const size = 4 + Math.random() * 12;
+    const left = x + (Math.random() * 70 - 35);
+    const drift = (Math.random() * 100 - 50);
+
+    bubble.style.left = `${left}px`;
+    bubble.style.top = `${y + Math.random() * 18}px`;
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.setProperty('--drift-x', `${drift}px`);
+    bubble.style.animationDelay = `${(Math.random() * 0.2).toFixed(2)}s`;
+    bubble.style.filter = `blur(${(Math.random() * 1.2).toFixed(2)}px)`;
+
+    layer.appendChild(bubble);
+    setTimeout(() => bubble.remove(), 2400);
+  }
+}
+
+function attachBubbleTrigger() {
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (target.closest('button') || target.closest('input') || target.closest('select')) {
+      triggerBubbleBurst(event.clientX, event.clientY);
+    }
+  });
 }
 
 function renderPlayers() {
@@ -442,6 +478,7 @@ if (roomFromUrl) {
   roomInput.value = roomFromUrl.trim().toUpperCase();
 }
 
+attachBubbleTrigger();
 setScreen('menu');
 updatePlayerGate();
 updateShareBox();
