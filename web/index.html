@@ -10,32 +10,64 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
-          <h1>ABYSSE</h1>
+        <div class="brand" aria-label="Logo Abysse">
+          <svg class="jelly-logo" viewBox="0 0 500 380" role="img" aria-label="Méduse Abysse">
+            <defs>
+              <linearGradient id="bellGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#7fe3ff" />
+                <stop offset="38%" stop-color="#39c9ff" />
+                <stop offset="75%" stop-color="#0d9ad8" />
+                <stop offset="100%" stop-color="#0b6fb5" />
+              </linearGradient>
+              <linearGradient id="tentacleGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="#8feaff" />
+                <stop offset="50%" stop-color="#3ec8ff" />
+                <stop offset="100%" stop-color="#0d94d5" />
+              </linearGradient>
+            </defs>
+
+            <g>
+              <circle cx="100" cy="120" r="8" fill="#8feaff" opacity="0.9" />
+              <circle cx="390" cy="175" r="7" fill="#8feaff" opacity="0.9" />
+              <circle cx="315" cy="70" r="10" fill="#8feaff" opacity="0.8" />
+
+              <path d="M185 90 C140 35, 78 50, 55 130 C35 190, 65 255, 126 280 C166 298, 228 296, 268 274 C326 242, 354 170, 332 116 C309 56, 246 46, 185 90 Z" fill="url(#bellGradient)"/>
+              <path d="M155 115 C175 100, 195 96, 217 103 C238 111, 255 125, 264 143 C251 138, 236 136, 220 139 C197 144, 174 152, 155 166 C154 146, 153 128, 155 115 Z" fill="rgba(255,255,255,0.20)"/>
+
+              <path d="M200 145 C199 164, 184 181, 170 195 C148 216, 132 248, 138 274 C140 288, 150 298, 166 298 C182 298, 197 286, 207 272 C221 253, 226 223, 229 201 C233 181, 233 159, 200 145 Z" fill="url(#bellGradient)" opacity="0.9"/>
+
+              <path d="M210 150 C240 167, 270 190, 290 222 C311 257, 319 286, 330 300 C347 321, 361 325, 365 310 C368 294, 357 286, 347 278 C324 257, 315 236, 307 222 C286 189, 270 175, 248 160 C236 152, 220 145, 210 150 Z" fill="url(#bellGradient)" opacity="0.9"/>
+
+              <path d="M135 230 C112 250, 90 270, 88 305 C86 334, 98 346, 112 345 C126 345, 138 334, 144 318 C151 299, 149 268, 135 230 Z" fill="url(#tentacleGradient)"/>
+              <path d="M180 220 C168 246, 159 272, 165 306 C170 336, 181 350, 197 348 C210 347, 219 332, 220 316 C221 291, 211 251, 180 220 Z" fill="url(#tentacleGradient)"/>
+              <path d="M235 230 C255 255, 271 279, 280 314 C287 339, 301 351, 317 348 C333 345, 337 331, 332 313 C325 285, 298 252, 235 230 Z" fill="url(#tentacleGradient)"/>
+              <path d="M287 216 C323 235, 350 264, 364 294 C377 321, 381 344, 393 350 C408 358, 425 348, 425 331 C425 314, 411 294, 392 274 C371 251, 338 226, 287 216 Z" fill="url(#tentacleGradient)"/>
+
+              <path d="M105 155 C124 145, 160 142, 177 149" stroke="#dff9ff" stroke-width="9" stroke-linecap="round" opacity="0.8" fill="none"/>
+              <path d="M250 154 C274 148, 300 150, 331 163" stroke="#dff9ff" stroke-width="9" stroke-linecap="round" opacity="0.8" fill="none"/>
+            </g>
+          </svg>
+
+          <div class="brand-wordmark">ABYSSE</div>
         </div>
       </header>
 
       <main class="panel">
         <section id="menuScreen" class="screen">
           <div class="card intro-card">
-            <div>
-              <p class="label">Expérience abyssale</p>
-              <h2>Descendez jusqu’au secret des grands fonds.</h2>
-            </div>
-
             <div class="setup-grid">
               <div class="field">
                 <label for="playerName">Pseudo</label>
-                <input id="playerName" type="text" value="Explorateur" maxlength="20" />
+                <input id="playerName" type="text" value="Explorateur" maxlength="20" placeholder="Choisis ton pseudo" />
               </div>
 
               <div class="field">
-                <label for="difficultySelect">Niveau</label>
-                <select id="difficultySelect">
-                  <option value="facile">Facile</option>
-                  <option value="moyen">Moyen</option>
-                  <option value="difficile">Difficile</option>
-                </select>
+                <label>Choix du niveau</label>
+                <div class="difficulty-inline" id="difficultyButtons">
+                  <button type="button" class="difficulty-btn active" data-difficulty="facile">Facile</button>
+                  <button type="button" class="difficulty-btn" data-difficulty="moyen">Moyen</button>
+                  <button type="button" class="difficulty-btn" data-difficulty="difficile">Difficile</button>
+                </div>
               </div>
 
               <div class="field">

@@ -53,7 +53,7 @@ const resultsScreen = document.getElementById('resultsScreen');
 
 const playerNameInput = document.getElementById('playerName');
 const roomInput = document.getElementById('roomInput');
-const difficultySelect = document.getElementById('difficultySelect');
+const difficultyButtons = document.querySelectorAll('.difficulty-btn');
 const roomCodeLabel = document.getElementById('roomCodeLabel');
 const playerList = document.getElementById('playerList');
 const questionText = document.getElementById('questionText');
@@ -87,6 +87,19 @@ function updateStatus(text) {
   if (statusPill) {
     statusPill.textContent = text;
   }
+}
+
+function validatePlayerName() {
+  const cleanName = playerNameInput.value.trim();
+  if (!cleanName) {
+    playerNameInput.focus();
+    playerNameInput.setAttribute('placeholder', 'Choisis un pseudo');
+    playerNameInput.value = '';
+    alert('Tu dois choisir un pseudo avant de continuer.');
+    return false;
+  }
+  playerNameInput.value = cleanName;
+  return true;
 }
 
 function updateShareBox() {
@@ -314,9 +327,10 @@ function renderSoloResults() {
 }
 
 function createRoom() {
+  if (!validatePlayerName()) return;
+
   state.mode = 'multi';
-  state.difficulty = difficultySelect.value;
-  const playerName = playerNameInput.value.trim() || 'Explorateur';
+  const playerName = playerNameInput.value.trim();
   state.clientId = `player-${Math.random().toString(16).slice(2, 8)}`;
   connectSocket();
   sendSocketMessage({
@@ -328,8 +342,9 @@ function createRoom() {
 }
 
 function joinRoom() {
+  if (!validatePlayerName()) return;
+
   state.mode = 'multi';
-  state.difficulty = difficultySelect.value;
   const roomCode = (roomInput.value || '').trim().toUpperCase();
   if (!roomCode) {
     alert('Indique un code de salon.');
@@ -341,13 +356,14 @@ function joinRoom() {
   sendSocketMessage({
     action: 'join_room',
     roomCode,
-    playerName: playerNameInput.value.trim() || 'Explorateur',
+    playerName: playerNameInput.value.trim(),
     difficulty: state.difficulty,
     clientId: state.clientId,
   });
 }
 
 function startMultiplayerGame() {
+  if (!validatePlayerName()) return;
   if (!state.roomCode) {
     return;
   }
@@ -376,13 +392,24 @@ const gameHomeBtn = document.getElementById('gameHomeBtn');
 const playAgainBtn = document.getElementById('playAgainBtn');
 const backMenuBtn = document.getElementById('backMenuBtn');
 
+difficultyButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    state.difficulty = button.dataset.difficulty;
+    difficultyButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+  });
+});
+
 createRoomBtn.addEventListener('click', createRoom);
 joinRoomBtn.addEventListener('click', joinRoom);
-soloBtn.addEventListener('click', startSoloGame);
+soloBtn.addEventListener('click', () => {
+  if (!validatePlayerName()) return;
+  startSoloGame();
+});
 startGameBtn.addEventListener('click', startMultiplayerGame);
 lobbyHomeBtn.addEventListener('click', resetToMenu);
 gameHomeBtn.addEventListener('click', resetToMenu);
 playAgainBtn.addEventListener('click', () => {
+  if (!validatePlayerName()) return;
   if (state.mode === 'multi') {
     startMultiplayerGame();
     return;
