@@ -53,6 +53,8 @@ const resultsScreen = document.getElementById('resultsScreen');
 
 const playerNameInput = document.getElementById('playerName');
 const roomInput = document.getElementById('roomInput');
+const setupLockedContent = document.getElementById('setupLockedContent');
+const pseudoHint = document.getElementById('pseudoHint');
 const difficultyButtons = document.querySelectorAll('.difficulty-btn');
 const roomCodeLabel = document.getElementById('roomCodeLabel');
 const playerList = document.getElementById('playerList');
@@ -66,6 +68,9 @@ const statusPill = document.getElementById('statusPill');
 const joinCode = document.getElementById('joinCode');
 const joinLink = document.getElementById('joinLink');
 const qrCode = document.getElementById('qrCode');
+const createRoomBtn = document.getElementById('createRoomBtn');
+const joinRoomBtn = document.getElementById('joinRoomBtn');
+const soloBtn = document.getElementById('soloBtn');
 
 function shuffle(arr) {
   const copy = [...arr];
@@ -86,6 +91,20 @@ function setScreen(name) {
 function updateStatus(text) {
   if (statusPill) {
     statusPill.textContent = text;
+  }
+}
+
+function updatePlayerGate() {
+  const hasName = playerNameInput.value.trim().length > 0;
+  setupLockedContent.classList.toggle('hidden', !hasName);
+  pseudoHint.classList.toggle('hidden', hasName);
+
+  createRoomBtn.disabled = !hasName;
+  joinRoomBtn.disabled = !hasName;
+  soloBtn.disabled = !hasName;
+
+  if (!hasName) {
+    roomInput.value = '';
   }
 }
 
@@ -383,14 +402,13 @@ function resetToMenu() {
   updateStatus('');
 }
 
-const createRoomBtn = document.getElementById('createRoomBtn');
-const joinRoomBtn = document.getElementById('joinRoomBtn');
-const soloBtn = document.getElementById('soloBtn');
 const startGameBtn = document.getElementById('startGameBtn');
 const lobbyHomeBtn = document.getElementById('lobbyHomeBtn');
 const gameHomeBtn = document.getElementById('gameHomeBtn');
 const playAgainBtn = document.getElementById('playAgainBtn');
 const backMenuBtn = document.getElementById('backMenuBtn');
+
+playerNameInput.addEventListener('input', updatePlayerGate);
 
 difficultyButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -425,5 +443,6 @@ if (roomFromUrl) {
 }
 
 setScreen('menu');
+updatePlayerGate();
 updateShareBox();
 updateStatus('');
