@@ -31,6 +31,8 @@ const QUESTION_BANK = {
   ],
 };
 
+const MAX_QUESTIONS_PER_GAME = 10;
+
 const state = {
   mode: 'solo',
   difficulty: 'facile',
@@ -316,8 +318,9 @@ function renderAnswers(options, correctIndex) {
       const isCorrect = index === correctIndex;
       button.classList.add(isCorrect ? 'correct' : 'wrong');
       if (state.mode === 'solo') {
-        if (isCorrect) {
-          state.score += 1;
+        const currentQuestion = state.currentQuestions[state.currentQuestionIndex];
+        if (isCorrect && currentQuestion) {
+          state.score += currentQuestion.points || 1;
         }
         setTimeout(() => {
           advanceSoloQuestion();
@@ -337,7 +340,7 @@ function renderAnswers(options, correctIndex) {
 
 function buildSoloQuestions() {
   const pool = QUESTION_BANK[state.difficulty] || QUESTION_BANK.facile;
-  return shuffle(pool).slice(0, 8);
+  return shuffle(pool).slice(0, MAX_QUESTIONS_PER_GAME);
 }
 
 function startSoloGame() {
@@ -356,6 +359,8 @@ function showQuestion(index) {
     return;
   }
 
+  state.currentQuestionIndex = index;
+  state.answersLocked = false;
   questionBadge.textContent = `Question ${index + 1}`;
   questionText.textContent = question.question;
   renderAnswers(question.options, question.answer);
@@ -364,7 +369,6 @@ function showQuestion(index) {
 
 function advanceSoloQuestion() {
   const nextIndex = state.currentQuestionIndex + 1;
-  state.currentQuestionIndex = nextIndex;
   if (nextIndex >= state.currentQuestions.length) {
     renderSoloResults();
     return;
